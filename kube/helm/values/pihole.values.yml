@@ -1,0 +1,24 @@
+---
+persistentVolumeClaim:
+  enabled: true
+ingress:
+  enabled: true
+  # annotations:
+    # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  hosts:
+    - "pihole.home"
+  # tls:
+  # - secretName: kubernetes-dashboard-tls
+  #   hosts:
+  #   - kubernetes-dashboard.example.com
+serviceWeb:
+  loadBalancerIP: 192.168.1.250
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+serviceDns:
+  loadBalancerIP: 192.168.1.250
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+replicaCount: 1

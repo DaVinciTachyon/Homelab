@@ -1,0 +1,18 @@
+---
+app:
+  networkPolicy:
+    enabled: true
+  spec:
+    egress:
+      - ports:
+          - port: 80
+ingress:
+  enabled: true
+  # annotations:
+    # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  hosts:
+    - "kube.home"
+  # tls:
+  # - secretName: kubernetes-dashboard-tls
+  #   hosts:
+  #   - kubernetes-dashboard.example.com
