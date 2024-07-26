@@ -15,3 +15,5 @@ controller:
   # -- For backwards compatibility with ingress.class annotation, use ingressClass.
   # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
   ingressClass: nginx-internal
+  extraArgs:
+    tcp-services-configmap: nginx-system/tcp-services
