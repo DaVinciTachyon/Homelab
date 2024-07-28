@@ -8,4 +8,5 @@ docker run \
         --workdir /wd ghcr.io/helmfile/helmfile:v0.156.0 \
         helmfile apply \
         --file ./helm/helmfile.yml
+
 kubectl apply -k .

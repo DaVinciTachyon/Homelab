@@ -11,12 +11,13 @@
 7. Set kube/helm/values/pihole.values.yml:ingress/enabled = false
 8. Run kube/apply.sh
 9. Change router to static DNS, first entry should point to '192.168.1.250', the rest to '0.0.0.0'.
+<!-- 10. Forward request to your router to internal dns server. -->
 10. Add services to your heart's content.
 
 ## Upgrade
 
-OS - Talos
-Beelink EQ12 * 2+
-32 GB RAM
-1TB+ Storage
-NAS
+- OS - Talos
+- Beelink EQ12 * 2+
+- 32 GB RAM
+- 1TB+ Storage
+- NAS

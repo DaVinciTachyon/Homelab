@@ -4,3 +4,8 @@ commonLabels:
   app.kubernetes.io/managed-by: Kustomize
 resources:
   - ./metallb/pool.yml
+  - ./ingress/tcp-configmap.yml
+  - ./ingress/public.yml
+  - ./ingress/private.yml
+  - ./certmanager/public-cluster-issuer.yml
+  - ./certmanager/private-cluster-issuer.yml

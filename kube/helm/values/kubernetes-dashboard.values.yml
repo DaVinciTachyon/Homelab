@@ -8,11 +8,11 @@ app:
           - port: 80
 ingress:
   enabled: true
-  # annotations:
-    # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  annotations:
+    cert-manager.io/cluster-issuer: "selfsigned-issuer"
   hosts:
-    - "kube.home"
-  # tls:
-  # - secretName: kubernetes-dashboard-tls
-  #   hosts:
-  #   - kubernetes-dashboard.example.com
+    - kube.home
+  tls:
+  - hosts:
+    - kube.home
+    secretName: kubernetes-dashboard-cert
