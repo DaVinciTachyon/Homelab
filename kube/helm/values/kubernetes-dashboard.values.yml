@@ -2,17 +2,21 @@
 app:
   networkPolicy:
     enabled: true
-  spec:
-    egress:
-      - ports:
-          - port: 80
-ingress:
-  enabled: true
-  annotations:
-    cert-manager.io/cluster-issuer: "selfsigned-issuer"
-  hosts:
-    - kube.home
-  tls:
-  - hosts:
-    - kube.home
-    secretName: kubernetes-dashboard-cert
+  ingress:
+    enabled: true
+    issuer:
+      scope: cluster
+      name: "selfsigned-issuer"
+    hosts:
+      - kube.home
+    tls:
+      enabled: true
+      hosts:
+      - kube.home
+      secretName: kubernetes-dashboard-cert
+    useDefaultIngressClass: false
+    ingressClassName: nginx-internal
+nginx:
+  enabled: false
+cert-manager:
+  enabled: false

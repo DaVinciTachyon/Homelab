@@ -9,3 +9,4 @@ resources:
   - ./ingress/private.yml
   - ./certmanager/public-cluster-issuer.yml
   - ./certmanager/private-cluster-issuer.yml
+  - ./kubernetesdash/account.yml

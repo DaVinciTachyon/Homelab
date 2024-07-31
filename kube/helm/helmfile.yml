@@ -11,8 +11,12 @@ repositories:
     url: https://charts.bitnami.com/bitnami
   - name: jetstack
     url: https://charts.jetstack.io
-  # - name: kubernetes-dashboard 
-  #   url: https://kubernetes.github.io/dashboard/
+  - name: kubernetes-dashboard 
+    url: https://kubernetes.github.io/dashboard/
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+  - name: grafana
+    url: https://grafana.github.io/helm-charts
 ---
 releases:
   # Distributed storage
@@ -20,6 +24,8 @@ releases:
     namespace: longhorn-system
     chart: longhorn/longhorn
     version: 1.6.2
+    values:
+      - ./values/longhorn.values.yml
 
   # Load balancer
   - name: metallb
@@ -60,9 +66,25 @@ releases:
       - ./values/cert-manager.values.yml
 
   # Kubernetes Container Dashboard
-  # - name: kubernetes-dashboard
-  #   namespace: kubernetes-dashboard
-  #   chart: kubernetes-dashboard/kubernetes-dashboard
-  #   version: 7.5.0
-  #   values:
-  #     - ./values/kubernetes-dashboard.values.yml
+  - name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    chart: kubernetes-dashboard/kubernetes-dashboard
+    version: 7.5.0
+    values:
+      - ./values/kubernetes-dashboard.values.yml
+
+  # Prometheus
+  - name: prometheus
+    namespace: prometheus-system
+    chart: prometheus-community/prometheus
+    version: 25.24.1
+    values:
+      - ./values/prometheus.values.yml
+
+  # Grafana
+  - name: grafana
+    namespace: prometheus-system
+    chart: grafana/grafana
+    version: 8.3.7
+    values:
+      - ./values/grafana.values.yml

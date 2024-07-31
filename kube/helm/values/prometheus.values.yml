@@ -1,0 +1,15 @@
+server:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: "selfsigned-issuer"
+    hosts:
+    - prometheus.home
+    tls:
+    - hosts:
+      - prometheus.home
+      secretName: prometheus-cert
+  statefulSet:
+    enabled: true
+  persistentVolume:
+    storageClass: longhorn

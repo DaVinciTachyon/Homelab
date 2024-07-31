@@ -1,0 +1,27 @@
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: "selfsigned-issuer"
+  hosts:
+  - grafana.home
+  tls:
+  - hosts:
+    - grafana.home
+    secretName: grafana-cert
+  ingressClassName: nginx-internal
+persistence:
+  enabled: true
+  storageClassName: longhorn
+additionalDataSources:
+  - name: prometheus
+    type: prometheus
+    url: http://prometheus-server.prometheus-system.svc.cluster.local
+    editable: true
+grafana.ini:
+  smtp:
+    enabled: true
+    host: 
+    user: 
+    password: 
+    from_address: noreply@grafana.home
+    enable_tracing: true

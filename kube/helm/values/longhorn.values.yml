@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: "selfsigned-issuer"
+  host: "longhorn.home"
+  ingressClassName: nginx-internal
+  secureBackends: true
+  tls: true
+  tlsSecret: longhorn-cert
