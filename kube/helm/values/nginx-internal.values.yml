@@ -1,4 +1,9 @@
 controller:
+  service:
+    ports:
+      http: 80
+      https: 443
+      minecraft: 25565
   ingressClassResource:
     # -- Name of the ingressClass
     name: nginx-internal
@@ -15,5 +20,13 @@ controller:
   # -- For backwards compatibility with ingress.class annotation, use ingressClass.
   # Algorithm is as follows, first ingressClassName is considered, if not present, controller looks for ingress.class annotation
   ingressClass: nginx-internal
-  extraArgs:
-    tcp-services-configmap: nginx-system/tcp-services
+
+tcp:
+  "25565": "minecraft-system/minecraft:25565"
+
+opentelemetry:
+  enabled: true
+  metrics:
+    enabled: true
+
+# defaultBackend

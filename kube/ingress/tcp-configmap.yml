@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: tcp-services
-  namespace: nginx-system
-data:
-  "25565": "minecraft-system/minecraft:25565"
