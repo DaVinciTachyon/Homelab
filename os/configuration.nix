@@ -77,7 +77,7 @@
 	    "--write-kubeconfig-mode \"0644\""
 	    "--cluster-init"
 	    "--disable servicelb"
-	    "--disable traefik"
+      "--disable traefik"
 	    "--disable local-storage"
     ] ++ (if meta.isclusterinit then [] else [
 	      "--server https://homelab-0:6443"
